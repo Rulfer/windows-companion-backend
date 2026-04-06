@@ -24,16 +24,16 @@ jobs:
           dotnet-version: '10.x'
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
-
+        run: dotnet build ./WindowsCompanionAppBackend/backend --configuration Release
+  
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/WindowsCompanionAppBackend
-
+        run: dotnet publish ./WindowsCompanionAppBackend/backend -c Release -o ${{env.DOTNET_ROOT}}/backend
+        
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/WindowsCompanionAppBackend
+          path: ${{env.DOTNET_ROOT}}/backend
 
   deploy:
     runs-on: ubuntu-latest

@@ -1,0 +1,54 @@
+# Build outputs
+bin/
+obj/
+out/
+publish/
+
+# Rider
+.idea/
+*.sln.iml
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+project.lock.json
+project.assets.json
+*.nuspec
+
+# .NET Core
+*.deps.json
+*.runtimeconfig.json
+*.runtimeconfig.dev.json
+
+# Test results
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+*.trx
+
+# Logs
+*.log
+logs/
+
+# Environment & secrets
+.env
+.env.*
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Azure
+.azure/
+local.settings.json
+
+# Publish profiles
+Properties/PublishProfiles/
+**/Properties/PublishProfiles/

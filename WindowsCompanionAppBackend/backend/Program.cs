@@ -11,6 +11,9 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+// Add SignalR: A system for real-time, bidirectional communication between clients and servers.
+builder.Services.AddSignalR();
+
 builder.Services.AddScoped<ICommands, CommandManager>();
 
 var app = builder.Build();
@@ -20,6 +23,8 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
+
+app.MapHub<CommandHub>("/hubs/commands");
 
 app.UseHttpsRedirection();
 

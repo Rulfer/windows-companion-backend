@@ -7,19 +7,12 @@ namespace backend.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class CommandController: ControllerBase
+public class CommandController(ICommands commands) : ControllerBase
 {
-    private readonly ICommands _commands;
-
-    public CommandController(ICommands commands)
-    {
-        _commands = commands;
-    }
-    
     [HttpPost("shutdown")]
-    public IResult Shutdown()
+    public async Task<IResult> Shutdown()
     {
-        var result = _commands.Shutdown();
-        return result.Result;
+        var result = await commands.Shutdown();
+        return result;
     }
 }
